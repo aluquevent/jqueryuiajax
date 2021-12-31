@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 50px;
+}
+div.header{
+    width: 100%;
+    margin-bottom: 50px;
+    
+}
+
+h1{
+    font-size: 2em;
+    color: #747474;
+    margin-bottom: 15px;
+}
+
+h2{
+    font-size: 1.5em;
+}
+
+div.browser{
+    width: 100%;
+}
+
+div.browserMain{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 150px;
+    margin-bottom: 50px;
+}
+
+div.browserMain input{
+    font-size: 1.3em;
+    border: none;
+    border-bottom: 3px solid #c6c6c6;
+    margin-right: 15px;
+    padding: 5px 15px;
+}
+
+div.browserMain input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 3px solid rgb(108, 24, 24);
+    background-color: rgba(194, 167, 167, 0.618);
+    margin-right: 15px;
+    padding: 5px 15px; 
+}
+
+div.browserMain button{
+    font-size: 1.3em;
+    border: none;
+    background: rgb(108, 24, 24);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+.titleBanner {
+    color: rgb(0, 0, 184);
+    font-size: 1.5em;
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    
+}
+.titleBanner p {
+    font-size: 1em;
+}
+.titleBanner h3 {
+    font-style: italic;
+}
+.titleBanner div {
+    margin-left: 15px;
+}
+
+.wordOrigin{
+    padding: 15px;
+    background-color: #e9e9e9;
+    color: darkolivegreen;
+    margin-bottom: 15px;
+}
+
+.exampleTitle{
+    margin: 10px 0;
+    font-size: 1em;
+    color: rgb(148, 68, 68);
+    font-style: italic;
+}
+
+.optionsButton{
+    width: 150px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    color: white !important;
+    background-color: rgba(152, 54, 54, 0.721);
+    padding: 10px 7px;
+    border-radius: 15px;
+}
+.definition {
+    margin-bottom: 20px;
+    
+}
+.definition span {
+    color: blue !important;
+
+}
