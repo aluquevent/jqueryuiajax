@@ -21,6 +21,7 @@ $(document).ready(() =>{
 
             container.hide();
             
+            //Recorrido del objeto en su primera dimensión
             $.each(results, function(i, item){
                 $('#word').val('');
                 container.append("<div id='display"+ i +"'></div>");
@@ -50,21 +51,26 @@ $(document).ready(() =>{
                 let meaningDisplay = $('#meaning'+i);
                 let meaningTabs = $('#meaning'+i+' ul');
                 
+                //Recorrido de campo 'meanings' en json
                 $.each(meanings, function(j, meaning){
+                    
                     meaningTabs.append("<li><a href='#definitions"+ i + j +"'>"+ meaning.partOfSpeech+"</a></li>");
                     meaningDisplay.append("<div id='definitions"+ i + j +"'></div>");
-                    
                     let definitionDisplay = $('#definitions'+i+j);
+                    
+                    //Recorrido de campo 'definitions' en json
                     let definitions = meaning.definitions;
-
+                    
                     $.each(definitions, function(k, definition){
                         definitionDisplay.append("<div id='definition"+ j + k +"'><p><span>"+ (k+1) +". </span>"+ definition.definition +"</p></div>");
                         definitionDisplay.append("<div id='buttons"+j+k+"'></div>");
                         let buttonsDisplay = $('#definition'+j+k);
                         buttonsDisplay.addClass('definition');
                              
-                        //Ejemplos
+                        //Condicional Ejemplos
                         if(definition.hasOwnProperty('example')){
+
+                            //Creación y clases
                             buttonsDisplay.append("<a id='exampleToggle"+j+k+"'>View example</a>");
                             let exampleButton = $('#exampleToggle'+j+k);
                             exampleButton.addClass('optionsButton');
@@ -80,33 +86,42 @@ $(document).ready(() =>{
                             });
                         }
 
-                        //Sinónimos
+                        //Condicional Sinónimos
                         if(definition.synonyms != ""){
-                            buttonsDisplay.append("<a id='synonymsToggle"+j+k+"'>View synonyms</a>");
+                            
+                            //Creación y clases
+                            buttonsDisplay.append("<a style='background-color: #007fff;'id='synonymsToggle"+j+k+"'>View synonyms</a>");
                             let synonymsButton = $('#synonymsToggle'+j+k);
                             synonymsButton.addClass('optionsButton');
                             
                             buttonsDisplay.append("<div id='synonymsTitle"+j+k+"'></div>");
                             let synonymsTitle = $('#synonymsTitle'+j+k);
                             synonymsTitle.hide();
-                            synonymsTitle.addClass('synonymsTitle');
-                            synonymsTitle.append("<p id='synonyms"+j+k+"'>"+definition.synonyms+"</p>");
+                            synonymsTitle.addClass('exampleTitle');
+
+                            $.each(definition.synonyms, function(m, synonym){
+                                synonymsTitle.append("<p class='synonyms' id='synonyms"+j+k+"'>"+synonym+"</p>");
+                            });
+                            
     
                             synonymsButton.on("click", function(){
-                                synonymsTitle.toggle('blind', 200);
+                                synonymsTitle.toggle('blind', 500);
 
                             });
                         }
                     });
                 });
-
+                //Pestañas 
                 meaningDisplay.tabs();
             });
 
+            //Muestra del bloque con animación
             container.show("drop");
 
         }).fail(() => {
             container.html("");
+
+            //Animación botón
             browser.effect("shake");
             container.append('<small>Word not found</small>');
         });

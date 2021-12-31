@@ -90,7 +90,7 @@ div.browserMain button{
 }
 
 .exampleTitle{
-    margin: 10px 0;
+    margin: 10px 10px;
     font-size: 1em;
     color: rgb(148, 68, 68);
     font-style: italic;
@@ -114,4 +114,10 @@ div.browserMain button{
 .definition span {
     color: blue !important;
 
+}
+
+.synonyms{
+    font-weight: 700;
+    margin-top: 15px;
+    color: #0065ca;
 }
